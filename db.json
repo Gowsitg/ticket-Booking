@@ -1,0 +1,230 @@
+{
+    "locations": [
+      { "id": 1, "name": "Chennai" },
+      { "id": 2, "name": "Chengalpattu" },
+      { "id": 3, "name": "Coimbatore" },
+      { "id": 4, "name": "Cuddalore" },
+      { "id": 5, "name": "Madurai" },
+      { "id": 6, "name": "Tiruchirappalli" },
+      { "id": 7, "name": "Salem" },
+      { "id": 8, "name": "Erode" },
+      { "id": 9, "name": "Vellore" },
+      { "id": 10, "name": "Tirunelveli" },
+      { "id": 11, "name": "Thanjavur" },
+      { "id": 12, "name": "Dharmapuri" },
+      { "id": 13, "name": "Karur" },
+      { "id": 14, "name": "Kanchipuram" },
+      { "id": 15, "name": "Trichy" },
+      { "id": 16, "name": "Nagapattinam" },
+      { "id": 17, "name": "Pudukkottai" },  
+      { "id": 18, "name": "Ramanathapuram" },
+      { "id": 19, "name": "Villupuram" },
+      { "id": 20, "name": "Ariyalur" },
+      { "id": 21, "name": "Sivaganga" },
+      { "id": 22, "name": "Kanyakumari" },
+      { "id": 23, "name": "Nagercoil" },
+      { "id": 24, "name": "Chidambaram" },
+      { "id": 25, "name": "Tiruvarur" },
+      { "id": 26, "name": "Chennai Egmore" },
+      { "id": 27, "name": "Chennai Central" },
+      { "id": 28, "name": "Tambaram" },
+      { "id": 29, "name": "Mambalam" },
+      { "id": 30, "name": "Korattur" },
+      { "id": 31, "name": "Perambur" },
+      { "id": 32, "name": "Chetpet" },
+      { "id": 33, "name": "Koyambedu" },
+      { "id": 34, "name": "T Nagar" },
+      { "id": 35, "name": "Royapettah" },
+      { "id": 36, "name": "Nungambakkam" },
+      { "id": 37, "name": "Egmore" },
+      { "id": 38, "name": "Thiruvanmiyur" },
+      { "id": 39, "name": "Adyar" },
+      { "id": 40, "name": "Sholinganallur" }
+    ],
+
+    
+    
+    
+      "trainBooking": [
+        {
+          "from": "Chennai",
+          "to": "Chengalpattu",
+          "availableTrains": [
+            {
+              "trainNumber": "12601",
+              "trainName": "Chengalpattu Express",
+              "departureTime": "06:00 AM",
+              "arrivalTime": "07:15 AM",
+              "duration": "1h 15m",
+              "classAvailable": [
+                {
+                  "class": "CC",
+                  "availableSeats": 20,
+                  "pendingSeats": 0,
+                  "fare": 250,
+                  "lastUpdated": "2m"
+                },
+                {
+                  "class": "EC",
+                  "availableSeats": 0,
+                  "pendingSeats": 20,
+                  "fare": 350,
+                  "lastUpdated": "2m"
+                },
+                {
+                  "class": "3A",
+                  "availableSeats": 50,
+                  "pendingSeats": 0,
+                  "fare": 150,
+                  "lastUpdated": "2m"
+                },
+                {
+                  "class": "SL",
+                  "availableSeats": 50,
+                  "pendingSeats": 0,
+                  "fare": 50,
+                  "lastUpdated": "2m"
+                },
+
+                {
+                  "class": "2A",
+                  "availableSeats": 0,
+                  "pendingSeats": 10,
+                  "fare": 120,
+                  "lastUpdated": "5m"
+                }
+              ]
+            },
+            {
+              "trainNumber": "16901",
+              "trainName": "Chengalpattu Superfast",
+              "departureTime": "09:00 AM",
+              "arrivalTime": "11:15 AM",
+              "duration": "2h 15m",
+              "classAvailable": [
+                {
+                  "class": "SL",
+                  "availableSeats": 0,
+                  "pendingSeats": 3,
+                  "fare": 50,
+                  "lastUpdated": "10m"
+                },
+                {
+                  "class": "3A",
+                  "availableSeats": 0,
+                  "pendingSeats": 10,
+                  "fare": 120,
+                  "lastUpdated": "1hr"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "from": "Chennai",
+          "to": "Madurai",
+          "availableTrains": [
+            {
+              "trainNumber": "12637",
+              "trainName": "Pandian Express",
+              "departureTime": "09:20 PM",
+              "arrivalTime": "05:50 AM",
+              "duration": "8h 30m",
+              "classAvailable": [
+                {
+                  "class": "SL",
+                  "availableSeats": 0,
+                  "pendingSeats": 12,
+                  "fare": 320,
+                  "lastUpdated": "30m"
+                },
+                {
+                  "class": "3A",
+                  "availableSeats": 50,
+                  "pendingSeats": 0,
+                  "fare": 750,
+                  "lastUpdated": "45m"
+                }
+              ]
+            },
+            {
+              "trainNumber": "12631",
+              "trainName": "Nellai Express",
+              "departureTime": "08:10 PM",
+              "arrivalTime": "04:30 AM",
+              "duration": "8h 20m",
+              "classAvailable": [
+                {
+                  "class": "SL",
+                  "availableSeats": 90,
+                  "pendingSeats": 0,
+                  "fare": 300,
+                  "lastUpdated": "1hr"
+                },
+                {
+                  "class": "3A",
+                  "availableSeats": 0,
+                  "pendingSeats": 2,
+                  "fare": 700,
+                  "lastUpdated": "50m"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "from": "Chennai",
+          "to": "Coimbatore",
+          "availableTrains": [
+            {
+              "trainNumber": "12637",
+              "trainName": "Coimbatore Express",
+              "departureTime": "09:20 PM",
+              "arrivalTime": "05:50 AM",
+              "duration": "8h 30m",
+              "classAvailable": [
+                {
+                  "class": "SL",
+                  "availableSeats": 100,
+                  "pendingSeats": 0,
+                  "fare": 320,
+                  "lastUpdated": "1hr"
+                },
+                {
+                  "class": "3A",
+                  "availableSeats": 75,
+                  "pendingSeats": 0,
+                  "fare": 750,
+                  "lastUpdated": "30m"
+                }
+              ]
+            },
+            {
+              "trainNumber": "12638",
+              "trainName": "Coimbatore Superfast",
+              "departureTime": "07:00 PM",
+              "arrivalTime": "03:30 AM",
+              "duration": "8h 30m",
+              "classAvailable": [
+                {
+                  "class": "SL",
+                  "availableSeats": 20,
+                  "pendingSeats": 6,
+                  "fare": 320,
+                  "lastUpdated": "2m"
+                },
+                {
+                  "class": "2A",
+                  "availableSeats": 0,
+                  "pendingSeats": 2,
+                  "fare": 1000,
+                  "lastUpdated": "10m"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      
+  }
+  

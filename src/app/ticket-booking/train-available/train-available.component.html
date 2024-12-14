@@ -1,0 +1,71 @@
+<div class="train-details" fxLayoutAlign="center start">
+    <div fxFlex="98" fxLayout="row wrap" fxLayoutGap.gt-sm="15px" [fxLayoutAlign]="filteredTrains.length > 0 ? 'space-between start' : 'center center'">
+        <section *ngIf="filteredTrains.length > 0" fxFlex="100" fxFlex.gt-sm="25" fxLayout="column" fxLayoutGap="15px">
+            <div class="container-box" fxFlex="100">
+                <h4>Journey Class Filters</h4>
+                <div *ngFor="let trainClass of trainClasses" fxLayoutAlign="space-between center">
+                    <mat-checkbox>{{trainClass.viewValue}}</mat-checkbox>
+                    <span>{{trainClass.count}}</span>
+                </div>
+            </div>
+            <div class="container-box" fxFlex="100">
+                <h4>Araival in</h4>
+                <section fxLayout="row wrap" fxLayoutGap="10px" style="row-gap: 10px;margin-top: 14px;">
+                    <div *ngFor="let time of araivaltime" fxFlex="44" fxLayoutAlign="center center" class="time-Filter"
+                        fxLayout="column">
+                        <img src="assets/image/{{time.icon}}.svg" alt="Light Mode Icon">
+                        <p>{{time.time}}</p>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+        <div *ngIf="filteredTrains.length > 0" fxFlex.gt-sm="72"  fxFlex="100">
+            <section *ngFor="let result of filteredTrains" fxLayout="column" fxLayoutGap="15px">
+                <div *ngFor="let train of result.availableTrains">
+                    <div class="container-box" fxFlex="100" fxLayou="column">
+                        <div fxLayout="row" fxLayoutAlign="start start">
+                            <div fxFlex="35">
+                                <h4 class="fs-24">{{train.trainName}}</h4>
+                                <span class="fs-14">#{{train.trainNumber}}</span>
+                            </div>
+                            <div fxFlex="65" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+                                <section>
+                                    <p class="fs-15 bl-700">{{train.departureTime}},<span class="fs-12">{{selecteddate}}</span></p>
+                                    <span class="fs-13">{{result.from}}</span>
+                                </section>
+                                <mat-divider style="width: 50px"></mat-divider>
+                                <section>
+                                    <p class="fs-15 bl-700">{{train.duration}}</p>
+                                    <span color="primary" class="fs-13">View Route</span>
+                                </section>
+                                <mat-divider style="width: 50px"></mat-divider>
+                                <section>
+                                    <p class="fs-15 bl-700">{{train.arrivalTime}},<span></span></p>
+                                    <span class="fs-13">{{result.to}}</span>
+                                </section>
+                            </div>
+                        </div>
+                            <div class="scroll-container card-row">
+                                <div class="fare-card" *ngFor="let fare of train.classAvailable">
+                                <section fxLayoutAlign="space-between start">
+                                    <h4 class="fs-20">{{fare.class}}</h4>
+                                    <p class="fare fs-20">₹{{fare.fare}}</p>
+                                </section>
+                                    <p class="second" *ngIf="fare.availableSeats > 0" style="color:green;">Availabe {{fare.availableSeats}}</p>
+                                    <p class="second pending" *ngIf="fare.pendingSeats > 0">PQWL {{fare.pendingSeats}}</p>
+                                    <p class="third">Free Cancellation</p>
+                                    <p class="fourth">Updated {{fare.lastUpdated}} ago </p>
+                            </div>
+                        </div>
+                          
+                    </div>
+                </div> 
+            </section>
+        </div>
+        <section *ngIf="filteredTrains.length == 0" fxLayout="column" fxLayoutAlign="center">
+            <h4 class="fs-22">There Is No Train Availabe</h4>
+            <button class="mt-30" color="primary" (click)="naviagteHome()" mat-raised-button>Back To Home</button>
+        </section>
+    </div>
+</div>

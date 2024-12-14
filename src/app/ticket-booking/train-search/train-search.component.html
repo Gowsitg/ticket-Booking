@@ -1,0 +1,76 @@
+<div fxLayout="column">
+    <div fxLayout="row wrap" class="container" fxLayoutAlign="center start">
+        <div fxFlex="70" class="mat-tab-box">
+            <mat-tab-group [(selectedIndex)]="mattab" (selectedIndexChange)="onTabChange($event)">
+                <mat-tab *ngFor="let item of navItems">
+                    <ng-template mat-tab-label>
+                        <mat-icon>{{ item.icon }}</mat-icon>
+                        <p>{{ item.label }}</p>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div fxFlex="90" class="mat-tab-content">
+            <div
+                *ngIf="mattab == 0 || mattab == 1 || mattab == 2 || mattab == 3 || mattab == 5 || mattab == 6 || mattab == 7 || mattab == 8">
+                <p>Page Not Found</p>
+            </div>
+            <div class="search-container" *ngIf="mattab == 4">
+                <mat-radio-group [(ngModel)]="selectedOption">
+                    <mat-radio-button value="book" checked>Book Train Tickets</mat-radio-button>
+                    <mat-radio-button value="check">Check PNR Status</mat-radio-button>
+                    <mat-radio-button value="live">Live Train Status</mat-radio-button>
+                </mat-radio-group>
+                <form #form="ngForm" *ngIf="selectedOption === 'book'" class="mb-10" [formGroup]="searchform" fxLayout="row wrap" >
+                    <mat-form-field fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="32">
+                        <label>From</label>
+                        <input matInput formControlName="startplace" (input)="onSearch()" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let location of filteredLocations" [value]="location.name">{{location.name}}</mat-option>
+                        </mat-autocomplete>
+                        <span class="junction" *ngIf="searchform.controls['startplace'].value?.length > 3">{{ searchform.controls['startplace'].value }} Jn
+                        </span>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="32">
+                        <label>To</label>
+                        <input matInput formControlName="endplace" (input)="onSearchend()" appInputvaluestyle [matAutocomplete]="autoload">
+                        <mat-autocomplete #autoload="matAutocomplete">
+                            <mat-option *ngFor="let location of filteredLocationsend" [value]="location.name">{{location.name}}</mat-option>
+                          </mat-autocomplete>
+                          <span class="junction" *ngIf="searchform.controls['endplace'].value?.length > 3">{{ searchform.controls['endplace'].value }} Jn
+                        </span>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="100" fxFlex.gt-xs="30" fxFlex.gt-sm="17">
+                        <label>Travel Date   <mat-icon class="expand_more"></mat-icon>
+                        </label>
+                        <input matInput [min]="today" (click)="picker.open()" formControlName="travelDate" appInputvaluestyle [matDatepicker]="picker">
+                        <mat-datepicker #picker></mat-datepicker>
+                        <span class="junction" *ngIf="searchform.controls['travelDate'].value">
+                            {{ getDayOfWeek() }}
+                        </span>
+                        <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle> -->
+                    </mat-form-field>
+                    <mat-form-field fxFlex="100" fxFlex.gt-xs="30" fxFlex.gt-sm="17">
+                        <label>Train Class</label>
+                        <mat-select formControlName="trainClass">
+                          <mat-option *ngFor="let cls of trainClasses" [value]="cls.value">
+                            {{ cls.viewValue }}
+                          </mat-option>
+                        </mat-select>
+                        <span class="junction" *ngIf="searchform.controls['trainClass'].value">{{ searchform.controls['trainClass'].value }} Class
+                        </span>
+                      </mat-form-field>
+                      
+                </form>
+                <div class="btn-class">
+                    <button mat-raised-button (click)="handlesubmit()" [disabled]="!searchform.valid">Search</button>
+                </div>
+                <div
+                *ngIf="selectedOption === 'check' || selectedOption === 'live'">
+                <p>Page Not Found</p>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>

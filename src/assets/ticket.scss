@@ -1,0 +1,339 @@
+$primary-color: #085feb;
+$text-color: #333;
+$light-gray: #f5f5f5;
+
+$basefont: 16;
+$max: 50;
+$offset: 1;
+$unit: "rem";
+
+@mixin list-loop($className, $styleName) {
+ $i: 0;
+
+ @while $i <=$max {
+   #{$className + $i} {
+     #{$styleName}: #{($i) / ($basefont) + $unit} !important;
+   }
+
+   $i: $i + $offset;
+ }
+}
+
+@include list-loop(".fs-", "font-size");
+@include list-loop(".lh-", "line-height");
+@include list-loop(".ht-", "height");
+@include list-loop(".wh-", "width");
+@include list-loop(".p-t-", "padding-top");
+@include list-loop(".p-b-", "padding-bottom");
+@include list-loop(".mt-", "margin-top");
+@include list-loop(".m-b-", "margin-bottom");
+@include list-loop(".pd-", "padding");
+@include list-loop(".m-", "margin");
+
+.bl-700 {
+  font-weight: 700;
+}
+
+.search-container {
+
+  mat-radio-group {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+    gap: 20px;
+
+    mat-radio-button {
+      font-size: 14px;
+      color: $text-color;
+
+      &.mat-radio-checked {
+        color: $primary-color;
+      }
+    }
+
+  }
+
+  .btn-class {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 32px;
+
+    button {
+      border-radius: 20px;
+      color: white;
+      max-width: 160px;
+      text-transform: uppercase;
+      font-size: 20px;
+      background: #085feb;
+      height: 45px;
+    }
+  }
+
+  .mat-mdc-raised-button[disabled] {
+    background-color: #085feb;
+    opacity: .5;
+  }
+
+  .form-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: bold;
+        color: $text-color;
+        margin-bottom: 5px;
+      }
+
+      input,
+      mat-select {
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      span {
+        font-size: 12px;
+        color: gray;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: $primary-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+}
+
+.container {
+  .mat-tab-box {
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    margin: 20px 0px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .mat-tab-content {
+    padding: 70px 10px 10px 10px;
+    position: relative;
+    top: -60px;
+    width: 100%;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    z-index: 1;
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+
+mat-tab-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+
+  mat-icon {
+    font-size: 18px;
+  }
+}
+
+.mat-mdc-tab .mdc-tab__text-label {
+  flex-direction: column;
+}
+
+mat-tab-label.mat-tab-label-active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.mdc-tab {
+  max-width: 110px;
+  white-space: break-spaces !important;
+
+  p {
+    font-size: 12px;
+  }
+}
+
+.mat-mdc-tab-header {
+  --mdc-secondary-navigation-tab-container-height: 98px !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.mdc-text-field--filled {
+  --mdc-filled-text-field-active-indicator-height: 0px !important;
+  --mdc-filled-text-field-focus-active-indicator-height: 0px !important;
+}
+
+
+
+.mat-mdc-form-field {
+  border: 1px solid #ededed;
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .mdc-text-field__input,
+  .mat-mdc-select-value-text {
+    font-size: 25px !important;
+    font-weight: 700 !important;
+  }
+
+}
+
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled+.mdc-radio__background .mdc-radio__inner-circle {
+  border-color: $primary-color !important;
+}
+
+.mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: $primary-color !important;
+
+}
+
+.mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before {
+  background-color: #007bff4b !important;
+}
+
+.junction {
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.train-details {
+  margin-top: 30px;
+  .container-box {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .time-Filter {
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    padding: 3px;
+    p {
+      margin-top: 3px;
+    }
+  }
+}
+
+h4,p {
+  margin: 0px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.card-row {
+  gap: 15px;
+  margin-top: 20px;
+  display: flex;
+}
+.fare-card {
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d2d1d1;
+  padding: 14px;
+  min-width: 200px;
+  max-width: 200px;
+
+  h4 {
+    font-size: 18px;
+  }
+  .fare {
+    font-size: 18px;
+    font-weight: 700;
+      }
+ .second {
+  font-size: 14px;
+  padding: 8px 0;
+
+  &.pending {
+    background-color: #ffcc0076;
+    color: #ff8100;
+    width: fit-content;
+    border-radius: 20px;
+    padding: 7px;
+    margin: 10px 0;
+  }
+ }
+
+ .third {
+  font-size: 13px;
+  color:#666;
+  padding-bottom: 5px;
+ }
+
+ .fourth {
+  font-size: 12px;
+  color:#999
+ }
+  
+}
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 0 10px 0;
+}
+.scroll-container:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 5px;  
+  // display: none;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;  
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
